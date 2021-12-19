@@ -1,0 +1,25 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: service-reader
+  namespace: apps
+rules:
+  - apiGroups: [""] # "" indicates the core API group
+    resources: ["services", "endpoints"]
+    verbs: ["get", "watch", "list"]
+
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: service-reader-global
+  namespace: apps
+subjects:
+  - kind: User
+    name: system:serviceaccount:apps:default
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: service-reader
+  apiGroup: rbac.authorization.k8s.io

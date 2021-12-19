@@ -15,10 +15,10 @@ data "digitalocean_spaces_bucket" "space0" {
   ]
 }
 
-data "digitalocean_spaces_bucket" "space1" {
-  name   = var.do_spaces_name[1]
-  region = var.do_region
-  depends_on = [
-    digitalocean_spaces_bucket.buckets[1]
-  ]
-}
+#data "digitalocean_spaces_bucket" "space1" {
+#  name   = var.do_spaces_name[1]
+#  region = var.do_region
+#  depends_on = [
+#    digitalocean_spaces_bucket.buckets[1]
+#  ]
+#}

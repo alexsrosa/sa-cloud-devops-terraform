@@ -16,11 +16,11 @@ Below is a diagram that gives a high-level overview stack setup, as well as the 
 
 ## Software you need to install on your machine
 
-- [Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
-- [kubectl](https://kubernetes.io/docs/tasks/tools/)
-- [doctl](https://docs.digitalocean.com/reference/doctl/how-to/install/)
-- [flux cli](https://fluxcd.io/docs/installation/)
-- [kubeseal](https://github.com/bitnami-labs/sealed-secrets#installation)
+- HashiCorp [Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli) CLI, for provisioning the infrastructure.
+- [Kubectl](https://kubernetes.io/docs/tasks/tools/)  CLI, for `Kubernetes` interaction.
+- [Doctl](https://docs.digitalocean.com/reference/doctl/how-to/install/) CLI, for `DigitalOcean` API interaction.
+- [Flux](https://fluxcd.io/docs/installation/) CLI, for `Flux CD` interaction.
+- [Kubeseal](https://github.com/bitnami-labs/sealed-secrets#installation), for encrypting secrets and `Sealed Secrets Controller` interaction.
 
 ## Configure access keys 
 
@@ -106,7 +106,7 @@ Next, run [Terraform plan](https://www.terraform.io/docs/cli/commands/plan.html)
 ```shell
 terraform plan \
   -out plan.out \
-  -var-file env-staging.tfvars 
+  -var-file env-dev.tfvars 
 ```
 **Importantly, select the correct variable file for the environment.**
 
@@ -139,7 +139,7 @@ doctl k8s cluster list
 ```
 ```shell
 ID                                      Name                  Region    Version        Auto Upgrade    Status     Node Pools
-86fb55c0-0177-4f43-a77a-be2d2a5ffd50    levis-cluster-test    fra1      1.21.5-do.0    false           running    levis-cluster-test-pool
+86fb55c0-0177-4f43-a77a-be2d2a5ffd50    sa-cluster-dev    fra1      1.21.5-do.0    false           running    levis-cluster-test-pool
 ```
 
 Point `kubectl` to your cluster (make sure to replace the `<>` placeholders accordingly):

@@ -37,9 +37,9 @@ output "spaces-0" {
   value = data.digitalocean_spaces_bucket.space0.bucket_domain_name
 }
 
-output "spaces-1" {
-  value = data.digitalocean_spaces_bucket.space1.bucket_domain_name
-}
+#output "spaces-1" {
+#  value = data.digitalocean_spaces_bucket.space1.bucket_domain_name
+#}
 
 ###############################
 # Container registry

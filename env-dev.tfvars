@@ -6,7 +6,7 @@ environment = "dev"
 ###############################
 # Provider config
 ###############################
-do_region    = "fra1"
+do_region = "fra1"
 
 ###############################
 # Cluster config
@@ -33,7 +33,10 @@ do_container_registry_type = "basic"
 ###############################
 # Spaces
 ###############################
-do_spaces_name = ["sa-loki-bucket", "sa-velero-bucket"]
+do_spaces_name = [
+  "sa-grafana-loki-bucket"
+  ##, "sa-velero-bucket"
+]
 
 ###############################
 # GitHub config
@@ -41,7 +44,13 @@ do_spaces_name = ["sa-loki-bucket", "sa-velero-bucket"]
 #  - This module expects your Git `repository` and `branch` to be created beforehand
 #  - Currently, the `github_token` doesn't work with SSO
 ###############################
-git_repository_name      = "sa-cloud-devops-flux"                     # Git repository where `Flux CD` manifests should be stored
-git_repository_branch    = "main"                                     # Branch name to use for this `Git` repository (e.g.: `main`)
-git_repository_sync_path = "clusters/dev"                             # Git repository path where the manifests to sync are committed (e.g.: `clusters/dev`)
-git_repository_apps      = { 0 = "first-kotlin-cicd-app" }
+git_repository_name      = "sa-cloud-devops-flux" # Git repository where `Flux CD` manifests should be stored
+git_repository_branch    = "main"                 # Branch name to use for this `Git` repository (e.g.: `main`)
+git_repository_sync_path = "clusters/dev"         # Git repository path where the manifests to sync are committed (e.g.: `clusters/dev`)
+git_repository_apps = {
+  0 = "first-kotlin-cicd-app",
+  1 = "second-kotlin-cicd-app"
+}
+
+# https://kubernetes.io/docs/concepts/policy/resource-quotas/
+# # https://kubernetes.io/docs/concepts/policy/resource-quotas/
