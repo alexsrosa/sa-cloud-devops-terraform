@@ -135,6 +135,7 @@ terraform apply "plan.out"
 First, you have to set the `kubectl` context to point to your `DOKS` cluster. List the available `Kubernetes` clusters first:
 
 ```shell
+doctl auth init -t $TF_VAR_do_api_token
 doctl k8s cluster list
 ```
 ```shell

@@ -23,3 +23,5 @@ roleRef:
   kind: Role
   name: service-reader
   apiGroup: rbac.authorization.k8s.io
+
+## TODO: Add this on terraform
